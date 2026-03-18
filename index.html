@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Myntro — Premium Investment Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            myntro: {
+              dark: '#002633',
+              darker: '#001f29',
+              gold: '#b4916c',
+            },
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    .heading-serif {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .card-active {
+      transform: scale(1.08);
+      z-index: 10;
+      border-color: rgba(16, 185, 129, 0.85) !important;
+      box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.25);
+    }
+    @media (max-width: 768px) {
+      .card-active {
+        transform: scale(1.02);
+      }
+    }
+  </style>
+</head>
+<body class="bg-myntro-dark font-sans text-[#94a3b8] antialiased">
+
+  <!-- Nav -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-myntro-dark/95 backdrop-blur-md">
+    <nav class="mx-auto flex max-w-6xl flex-col px-4 py-3 md:flex-row md:items-center md:justify-between md:px-6 md:py-4">
+      <!-- Mobile: logo + CTAs -->
+      <div class="flex w-full items-center justify-between md:contents">
+        <a href="#" class="heading-serif shrink-0 text-lg text-white sm:text-xl md:order-1 md:text-2xl">MYNTRO</a>
+        <div class="flex shrink-0 items-center gap-2 md:order-3 md:gap-3">
+          <a href="#footer" class="rounded-lg border border-white/20 px-3 py-2 text-xs font-bold text-white transition hover:border-emerald-400/50 hover:bg-white/5 md:px-4 md:text-sm">Contact</a>
+          <button type="button" class="flex items-center gap-2 rounded-lg bg-emerald-600 px-3 py-2 text-xs font-bold text-white shadow-lg transition hover:bg-emerald-500 md:px-4 md:text-sm">
+            <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <span class="hidden sm:inline md:inline">Log in</span>
+          </button>
+        </div>
+      </div>
+      <!-- Links: mobile row / desktop center -->
+      <div class="mt-3 flex w-full items-center justify-center gap-4 border-t border-white/5 pt-3 md:order-2 md:mt-0 md:w-auto md:flex-1 md:border-0 md:pt-0 md:justify-center md:gap-8">
+        <a href="#products" class="text-xs font-medium text-white/90 hover:text-emerald-400 md:text-sm">Products</a>
+        <a href="#how" class="text-xs font-medium text-white/90 hover:text-emerald-400 md:text-sm">How it works</a>
+        <details class="group relative">
+          <summary class="flex cursor-pointer list-none items-center gap-1 text-xs font-medium text-white/90 marker:hidden hover:text-emerald-400 md:text-sm [&::-webkit-details-marker]:hidden">
+            About us
+            <svg class="h-3.5 w-3.5 transition group-open:rotate-180 md:h-4 md:w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="absolute right-0 top-full z-50 mt-2 w-52 rounded-lg border border-white/10 bg-myntro-darker/95 py-2 shadow-xl backdrop-blur-md md:left-1/2 md:right-auto md:w-56 md:-translate-x-1/2">
+            <a href="#trust" class="block px-4 py-2.5 text-sm text-white/90 hover:bg-white/5 hover:text-emerald-400">Security & supervision</a>
+            <a href="#footer" class="block px-4 py-2.5 text-sm text-white/90 hover:bg-white/5 hover:text-emerald-400">Our story</a>
+            <a href="#footer" class="block px-4 py-2.5 text-sm text-white/90 hover:bg-white/5 hover:text-emerald-400">Careers</a>
+          </div>
+        </details>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-white/5 bg-myntro-dark px-4 py-14 md:py-20 lg:py-24">
+    <div class="absolute inset-0 bg-gradient-to-br from-myntro-darker/80 to-transparent" aria-hidden="true"></div>
+    <div class="relative mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center lg:gap-12">
+      <div>
+        <p class="mb-3 text-xs font-semibold uppercase tracking-widest text-myntro-gold">Premium savings</p>
+        <h1 class="heading-serif text-3xl leading-tight text-white sm:text-4xl md:text-5xl lg:text-[2.75rem]">
+          Grow your wealth by up to 3.5%—Starting from Minute One.
+        </h1>
+        <p class="mt-5 max-w-xl text-base leading-relaxed text-[#94a3b8]">
+          Regulated partner banks, zero account fees, and yields designed for clarity. Choose overnight liquidity or lock in higher rates on fixed terms.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <a href="#products" class="inline-flex justify-center rounded-lg bg-emerald-500 px-6 py-3.5 text-sm font-bold text-myntro-dark transition hover:bg-emerald-400">Open account</a>
+          <a href="#calculator" class="inline-flex justify-center rounded-lg border border-white/20 px-6 py-3.5 text-sm font-bold text-white transition hover:border-white/40 hover:bg-white/5">Project your returns</a>
+        </div>
+        <p class="mt-6 inline-flex items-center gap-2 rounded-full border border-myntro-gold/40 bg-myntro-gold/10 px-4 py-2 text-xs font-medium text-myntro-gold">
+          EU deposit guarantee up to €100,000 per customer
+        </p>
+      </div>
+      <!-- Image placeholder -->
+      <div class="relative aspect-[4/5] w-full max-h-[420px] overflow-hidden rounded-3xl border border-white/10 shadow-2xl lg:max-h-none lg:min-h-[380px]">
+        <div class="absolute inset-0 bg-gradient-to-br from-teal-900 via-[#0a3d4a] to-emerald-950"></div>
+        <div class="absolute inset-0 opacity-40" style="background-image: radial-gradient(circle at 30% 20%, rgba(16,185,129,0.35) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(180,145,108,0.2) 0%, transparent 45%);"></div>
+        <div class="absolute bottom-8 left-8 right-8 rounded-xl border border-white/10 bg-black/30 p-4 backdrop-blur-sm">
+          <p class="heading-serif text-lg text-white">Capital at work</p>
+          <p class="mt-1 text-sm text-slate-400">Placeholder visual — mountain horizon aesthetic</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product selection -->
+  <section id="products" class="border-b border-white/5 bg-stone-100 px-4 py-16 md:py-20">
+    <div class="mx-auto max-w-6xl">
+      <h2 class="heading-serif text-center text-3xl text-myntro-dark md:text-4xl">Select the option that suits your goals</h2>
+      <p class="mx-auto mt-3 max-w-2xl text-center text-sm text-slate-600">Tap a card to update the calculator below. Active selection scales for focus.</p>
+
+      <div class="mt-12 grid gap-6 md:grid-cols-3 md:gap-5 lg:gap-8">
+        <!-- Overnight -->
+        <button type="button" data-product="overnight" class="product-card group relative rounded-2xl border-2 border-slate-200 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:border-emerald-300 md:p-7">
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Overnight</span>
+          <p class="heading-serif mt-2 text-4xl text-myntro-dark">3.85%</p>
+          <p class="text-sm font-medium text-slate-500">p.a. · Monthly compounding</p>
+          <ul class="mt-5 space-y-2 text-sm text-slate-600">
+            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span> Full liquidity</li>
+            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span> No lock-in</li>
+          </ul>
+        </button>
+        <!-- 12M Fixed -->
+        <button type="button" data-product="fixed12" class="product-card group relative rounded-2xl border-2 border-slate-200 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:border-emerald-300 md:p-7">
+          <span class="text-xs font-bold uppercase tracking-wider text-myntro-gold">12-Month Fixed</span>
+          <p class="heading-serif mt-2 text-4xl text-myntro-dark">4.25%</p>
+          <p class="text-sm font-medium text-slate-500">p.a. · Annual lock-in</p>
+          <ul class="mt-5 space-y-2 text-sm text-slate-600">
+            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-myntro-gold"></span> 12 months term</li>
+            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-myntro-gold"></span> Interest paid annually</li>
+          </ul>
+        </button>
+        <!-- 3Y Fixed -->
+        <button type="button" data-product="fixed36" class="product-card group relative rounded-2xl border-2 border-slate-200 bg-white p-6 text-left shadow-sm transition-all duration-300 hover:border-emerald-300 md:p-7">
+          <span class="text-xs font-bold uppercase tracking-wider text-myntro-gold">3-Year Fixed</span>
+          <p class="heading-serif mt-2 text-4xl text-myntro-dark">4.75%</p>
+          <p class="text-sm font-medium text-slate-500">p.a. · Annual lock-in</p>
+          <ul class="mt-5 space-y-2 text-sm text-slate-600">
+            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-myntro-gold"></span> 36 months term</li>
+            <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-myntro-gold"></span> Higher yield tier</li>
+          </ul>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="border-b border-white/5 bg-myntro-darker px-4 py-16 md:py-20">
+    <div class="mx-auto max-w-6xl">
+      <h2 class="heading-serif text-center text-3xl text-white md:text-4xl">How it works</h2>
+      <p class="mx-auto mt-3 max-w-xl text-center text-sm text-slate-400">Three steps from signup to growing balance.</p>
+      <div class="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
+        <div class="text-center">
+          <span class="heading-serif text-5xl text-emerald-500/90 md:text-6xl">01</span>
+          <h3 class="mt-4 text-lg font-bold text-white">Register</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-400">Complete digital onboarding in minutes with secure identity verification.</p>
+        </div>
+        <div class="text-center">
+          <span class="heading-serif text-5xl text-emerald-500/90 md:text-6xl">02</span>
+          <h3 class="mt-4 text-lg font-bold text-white">Choose</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-400">Pick overnight, 12-month, or 3-year fixed. Fund your account from your bank.</p>
+        </div>
+        <div class="text-center">
+          <span class="heading-serif text-5xl text-emerald-500/90 md:text-6xl">03</span>
+          <h3 class="mt-4 text-lg font-bold text-white">Earn</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-400">Watch interest accrue—monthly on overnight, annually on fixed terms.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator -->
+  <section id="calculator" class="border-b border-white/5 bg-stone-50 px-4 py-16 md:py-20">
+    <div class="mx-auto max-w-2xl rounded-3xl border border-slate-200/80 bg-stone-100/90 p-6 shadow-xl md:p-10">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <h2 class="heading-serif text-2xl text-myntro-dark md:text-3xl">Return calculator</h2>
+        <span id="calc-mode-badge" class="rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 text-xs font-bold text-emerald-700">Monthly compounding</span>
+      </div>
+      <p id="calc-mode-desc" class="mt-2 text-sm text-slate-600">Overnight: interest compounded monthly. Duration is in years (e.g. 1 = 12 months).</p>
+
+      <div class="mt-8 space-y-5">
+        <div>
+          <label for="amount" class="block text-sm font-semibold text-myntro-dark">Investment amount (€)</label>
+          <input type="number" id="amount" min="1" step="100" value="50000" class="mt-2 w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-myntro-dark shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20" />
+        </div>
+        <div>
+          <label for="duration" class="block text-sm font-semibold text-myntro-dark">Duration</label>
+          <select id="duration" class="mt-2 w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-myntro-dark shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20">
+            <option value="0.5">6 months</option>
+            <option value="1" selected>1 year</option>
+            <option value="2">2 years</option>
+            <option value="3">3 years</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mt-10 rounded-2xl border border-white/10 bg-myntro-dark p-6 text-center backdrop-blur-sm">
+        <p class="text-sm font-medium text-slate-400">Projected value</p>
+        <p id="result-value" class="heading-serif mt-2 text-3xl text-white md:text-4xl">€ —</p>
+        <p class="mt-3 inline-block rounded-full bg-myntro-gold/20 px-3 py-1 text-sm font-semibold text-myntro-gold">
+          Interest earned: <span id="result-interest">€ —</span>
+        </p>
+      </div>
+      <p class="mt-4 text-center text-xs text-slate-500">Illustrative only. Not financial advice. Rates and terms subject to product rules.</p>
+    </div>
+  </section>
+
+  <!-- Trust -->
+  <section id="trust" class="border-b border-white/5 bg-white px-4 py-16 md:py-20">
+    <div class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
+      <div class="aspect-video w-full overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-100 to-teal-50 lg:aspect-square lg:max-h-[400px]">
+        <div class="flex h-full items-center justify-center p-8 text-center">
+          <div>
+            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-600">
+              <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <p class="mt-4 text-sm font-medium text-slate-500">Placeholder — institutional security visual</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2 class="heading-serif text-3xl text-myntro-dark md:text-4xl">Your savings, protected by the EU</h2>
+        <p class="mt-4 text-sm leading-relaxed text-slate-600">
+          Eligible deposits are covered by the <strong class="text-myntro-dark">EU Deposit Guarantee Scheme</strong> up to <strong class="text-myntro-dark">€100,000 per customer, per institution</strong>. This framework applies across participating member states and is designed to give retail savers a standardized safety net.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-slate-600">
+          Myntro partners with regulated credit institutions. Our operations are subject to oversight consistent with European financial standards. Where applicable, partner activities fall under supervision by authorities such as the <strong class="text-myntro-dark">Swedish Financial Supervisory Authority (Finansinspektionen)</strong>—supporting transparency and compliance for investors.
+        </p>
+        <a href="#footer" class="mt-6 inline-flex rounded-lg border-2 border-myntro-dark px-5 py-2.5 text-sm font-bold text-myntro-dark transition hover:bg-myntro-dark hover:text-white">Learn more</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA strip -->
+  <section class="bg-myntro-dark px-4 py-14 text-center">
+    <h2 class="heading-serif text-2xl text-white md:text-3xl">Ready to make your money perform better?</h2>
+    <button type="button" class="mt-6 rounded-lg bg-emerald-500 px-8 py-3.5 text-sm font-bold text-myntro-dark transition hover:bg-emerald-400">Get started now</button>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="border-t border-white/10 bg-[#001a22] px-4 py-14 md:py-16">
+    <div class="mx-auto max-w-6xl">
+      <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <p class="heading-serif text-xl text-white">MYNTRO</p>
+          <p class="mt-3 text-sm leading-relaxed text-slate-500">Birger Jarlsgatan 18<br />114 34 Stockholm, Sweden</p>
+          <div class="mt-4 flex gap-3">
+            <a href="#" class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-slate-400 transition hover:border-white/20 hover:text-white" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wider text-myntro-gold">Savings</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-400">
+            <li><a href="#products" class="hover:text-white">Overnight</a></li>
+            <li><a href="#products" class="hover:text-white">12-Month Fixed</a></li>
+            <li><a href="#products" class="hover:text-white">3-Year Fixed</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wider text-myntro-gold">Group</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-400">
+            <li><a href="#trust" class="hover:text-white">About us</a></li>
+            <li><a href="#" class="hover:text-white">Careers</a></li>
+            <li><a href="#" class="hover:text-white">Press</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wider text-myntro-gold">Legal</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-400">
+            <li><a href="#" class="hover:text-white">Terms</a></li>
+            <li><a href="#" class="hover:text-white">Privacy</a></li>
+            <li><a href="#" class="hover:text-white">Imprint</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-slate-500 sm:flex-row">
+        <p>© 2026 Myntro AB. Prototype.</p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="#" class="hover:text-white">Cookie Policy</a>
+          <a href="#" class="hover:text-white">Imprint</a>
+          <span class="flex items-center gap-1 rounded border border-white/10 px-2 py-1 text-slate-400">🇬🇧 EN</span>
+        </div>
+      </div>
+      <p class="mt-6 text-center text-[10px] leading-relaxed text-slate-600">
+        This page is a design prototype. Deposit guarantee and supervision statements are illustrative. Investing involves risk; read all documentation before committing capital.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const PRODUCTS = {
+        overnight: { rate: 0.0385, mode: 'monthly', label: 'Monthly compounding', yearsForFixed: null },
+        fixed12: { rate: 0.0425, mode: 'annual', label: 'Annual lock-in', termYears: 1 },
+        fixed36: { rate: 0.0475, mode: 'annual', label: 'Annual lock-in', termYears: 3 },
+      };
+
+      let activeKey = 'overnight';
+      const cards = document.querySelectorAll('.product-card');
+      const badge = document.getElementById('calc-mode-badge');
+      const desc = document.getElementById('calc-mode-desc');
+      const amountEl = document.getElementById('amount');
+      const durationEl = document.getElementById('duration');
+      const resultValue = document.getElementById('result-value');
+      const resultInterest = document.getElementById('result-interest');
+
+      function formatEuro(n) {
+        return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
+      }
+
+      function setActive(key) {
+        activeKey = key;
+        cards.forEach(function (card) {
+          const k = card.getAttribute('data-product');
+          if (k === key) {
+            card.classList.add('card-active', 'border-emerald-500');
+            card.classList.remove('border-slate-200');
+          } else {
+            card.classList.remove('card-active', 'border-emerald-500');
+            card.classList.add('border-slate-200');
+          }
+        });
+
+        const p = PRODUCTS[key];
+        badge.textContent = p.mode === 'monthly' ? 'Monthly compounding' : 'Annual lock-in';
+        if (p.mode === 'monthly') {
+          desc.textContent = 'Overnight: balance grows with interest compounded each month. Choose any duration in years (partial years supported).';
+        } else {
+          desc.textContent = 'Fixed-term: interest compounds once per year for the full term. Duration aligns with your selected product (12 or 36 months).';
+        }
+
+        // Lock duration options for fixed products
+        if (key === 'fixed12') {
+          durationEl.value = '1';
+          Array.from(durationEl.options).forEach(function (opt) {
+            opt.disabled = opt.value !== '1';
+          });
+        } else if (key === 'fixed36') {
+          durationEl.value = '3';
+          Array.from(durationEl.options).forEach(function (opt) {
+            opt.disabled = opt.value !== '3';
+          });
+        } else {
+          Array.from(durationEl.options).forEach(function (opt) {
+            opt.disabled = false;
+          });
+        }
+
+        calculate();
+      }
+
+      function calculate() {
+        const P = Math.max(0, parseFloat(amountEl.value) || 0);
+        const p = PRODUCTS[activeKey];
+        let years;
+        if (p.mode === 'annual') {
+          years = p.termYears;
+        } else {
+          years = parseFloat(durationEl.value) || 1;
+        }
+
+        let A;
+        if (p.mode === 'monthly') {
+          const r = p.rate;
+          const n = 12;
+          A = P * Math.pow(1 + r / n, n * years);
+        } else {
+          const r = p.rate;
+          A = P * Math.pow(1 + r, years);
+        }
+
+        const interest = A - P;
+        resultValue.textContent = formatEuro(A);
+        resultInterest.textContent = formatEuro(interest);
+      }
+
+      cards.forEach(function (card) {
+        card.addEventListener('click', function () {
+          setActive(card.getAttribute('data-product'));
+        });
+      });
+
+      amountEl.addEventListener('input', calculate);
+      durationEl.addEventListener('change', function () {
+        if (PRODUCTS[activeKey].mode === 'annual') return;
+        calculate();
+      });
+
+      setActive('overnight');
+    })();
+  </script>
+</body>
+</html>
