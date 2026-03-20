@@ -1,27 +1,34 @@
-# Myntro — Landing + investment calculator
+# Myntro — Multi-page prototype
 
-Single-page HTML + Tailwind (CDN) matching the Myntro desktop design: navy header (Register / Login), hero, value props, calculator, features, how it works, FAQ, support, CTA, footer.
+Static HTML + Tailwind (CDN). **No build step** — open locally or host on GitHub Pages.
 
-## Investment calculator
+## Pages
 
-The calculator block mirrors **`myntro-investment-calculator`** (`npm run dev` → [http://localhost:3000](http://localhost:3000)):
+| File | Description |
+|------|-------------|
+| **`index.html`** | Home — hero, value props, “What we offer” cards, how it works, FAQs, support, CTA |
+| **`overnight.html`** | Overnight money — hero + liquidity story + link to fixed-term |
+| **`fixed-term.html`** | Fixed-term deposits — full investment calculator (`js/calculator.js`) |
+| **`about.html`** | About us — mission/vision, pillars, Swedish security, team placeholders |
+| **`contact.html`** | Contact — simple form (prototype only) |
 
-- Three selectable product cards (2.45% / 2.50% / 2.60% p.a.), annual compounding: `P × (1 + r)^t`
-- Minimum €5,000 · formatted EUR input · **Your expected returns** + yellow **Interest earned** pill
-- Same structure as the Next.js page (person icon on cards, navy border on selection)
+## Shared assets
+
+- **`css/site.css`** — custom classes (nav pills, typography helpers)
+- **`js/calculator.js`** — product tiles + compound interest (loaded on `fixed-term.html` only)
+- **`js/faq.js`** — FAQ accordion (loaded on `index.html` only)
+- **`assets/myntro-logo.png`** — header logo
 
 ## Preview
 
+From this folder:
+
 ```bash
-cd myntro-prototype
-python3 -m http.server 8765
+python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
-Open [http://localhost:8765/](http://localhost:8765/).
+Open **http://127.0.0.1:8765/** and use the top navigation to move between pages.
 
-## Fonts
+## GitHub Pages
 
-- **Playfair Display** — headlines  
-- **Source Sans Pro** — body & UI  
-
-Images are CSS placeholders (rounded); swap for real assets when ready.
+Set Pages to deploy from branch `main`, folder `/` (root of repo). Entry point: `index.html`.

@@ -1,0 +1,10 @@
+/* Myntro prototype — shared styles */
+.font-headline { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; letter-spacing: -0.02em; }
+.font-subhead { font-family: 'Source Sans Pro', system-ui, sans-serif; font-weight: 600; }
+.pill { border-radius: 9999px; }
+.img-placeholder { background: linear-gradient(145deg, #c5d5d8 0%, #8aa5a8 45%, #5a7578 100%); }
+.nav-link { font-size: 15px; font-weight: 400; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+.nav-link--cyan { background-color: #B2D8D8; color: #051C2C; font-weight: 600; padding: 0.5rem 1rem; border-radius: 9999px; }
+.nav-link--outline { border: 1px solid rgba(255,255,255,0.95); color: #fff; padding: 0.5rem 1rem; border-radius: 9999px; background: transparent; }
+.nav-link--plain { color: #fff; padding: 0.5rem 0.25rem; }
+.nav-link--plain:hover { opacity: 0.9; }

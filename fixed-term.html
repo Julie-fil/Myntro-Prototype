@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Myntro — Fixed-term deposits</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/site.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { DEFAULT: '#162033', dark: '#0f1729' },
+            beige: { panel: '#ebe6de', section: '#f0ebe3' },
+            teal: { btn: '#8ecbce', btnHover: '#7ab8bc' },
+          },
+          fontFamily: { headline: ['"Playfair Display"', 'Georgia', 'serif'], sans: ['"Source Sans Pro"', 'system-ui', 'sans-serif'] },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-[#f5f2ed] font-sans text-slate-700 antialiased">
+  <header class="sticky top-0 z-50 bg-[#051C2C] font-sans text-white">
+    <nav class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3 md:flex-nowrap md:gap-6 md:px-8 md:py-3.5">
+      <a href="index.html" class="flex min-w-0 shrink-0 items-center">
+        <img src="assets/myntro-logo.png" alt="myntro" width="160" height="40" class="h-8 w-auto max-w-[min(200px,45vw)] object-contain object-left md:h-9" />
+      </a>
+      <div class="order-3 flex w-full flex-[1_1_100%] flex-wrap items-center justify-center gap-x-6 gap-y-2 sm:gap-x-10 md:order-none md:min-w-0 md:flex-1 md:justify-center md:gap-x-12">
+        <a href="overnight.html" class="nav-link nav-link--plain">Overnight money</a>
+        <a href="fixed-term.html" class="nav-link nav-link--cyan" aria-current="page">Fixed-term deposits</a>
+        <a href="about.html" class="nav-link nav-link--plain">About us</a>
+      </div>
+      <div class="flex shrink-0 items-center gap-2 md:gap-3">
+        <a href="contact.html" class="pill whitespace-nowrap border border-white bg-transparent px-5 py-2 text-sm font-semibold text-white transition hover:bg-white/10">Contact us</a>
+        <button type="button" class="pill flex items-center gap-2 border border-white bg-transparent px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10">
+          <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          Log in
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <section class="bg-navy px-4 py-10 md:py-14">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="font-subhead text-sm uppercase tracking-wide text-teal-btn">Fixed-term deposits</p>
+      <h1 class="font-headline mt-2 text-3xl text-white md:text-4xl">Lock in your rate. Watch your capital grow.</h1>
+      <p class="mt-4 font-sans text-slate-300">Select a term, enter your amount, and see your expected returns—instantly.</p>
+    </div>
+  </section>
+
+  <section class="px-4 py-12 sm:py-16">
+    <div class="mx-auto w-full max-w-5xl rounded-[28px] p-6 shadow-sm sm:p-10 md:p-12" style="background-color:#ebe6de;">
+      <header class="mb-10 text-center sm:mb-12">
+        <h2 class="font-headline text-3xl leading-tight text-navy sm:text-4xl md:text-[2.5rem]">Discover our core investment options</h2>
+        <p class="mx-auto mt-4 max-w-xl font-sans text-base text-slate-600">With your investment you get access to our exclusive partner bank.</p>
+      </header>
+      <div id="product-grid" class="mb-12 grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-6" role="list" aria-label="Investment products"></div>
+      <div class="mx-auto max-w-2xl" id="calc-results" role="status" aria-live="polite">
+        <label for="amount-input" class="mb-3 block text-center text-sm font-semibold text-navy">Enter your investment amount</label>
+        <input id="amount-input" type="text" inputmode="decimal" class="w-full rounded-xl border border-slate-300/80 bg-white py-4 text-center text-lg font-semibold shadow-none outline-none focus:ring-2 focus:ring-navy/20" style="color:#162033" />
+        <p class="mt-2 text-center text-xs text-slate-500" id="min-hint"></p>
+        <div class="my-8 border-t border-slate-300/60"></div>
+        <p class="mb-2 text-center text-sm font-semibold text-navy">Your expected returns</p>
+        <p id="total-value" class="mb-6 text-center text-4xl font-bold tabular-nums tracking-tight text-navy sm:text-5xl md:text-6xl" style="color:#162033"></p>
+        <div class="mb-10 flex justify-center">
+          <div id="interest-pill" class="pill inline-flex items-center px-6 py-2.5 text-sm font-semibold text-navy shadow-sm" style="background-color:#f4e4a6;"></div>
+        </div>
+        <div class="flex justify-center">
+          <button type="button" class="pill w-full max-w-md bg-navy px-8 py-4 text-base font-semibold text-white transition-opacity hover:opacity-90 sm:w-auto">Open account</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-navy-dark px-4 py-14 text-slate-400">
+    <div class="mx-auto max-w-6xl">
+      <div class="flex flex-col gap-10 border-b border-white/10 pb-10 md:flex-row md:justify-between">
+        <div>
+          <p class="font-headline text-xl lowercase text-white">myntro</p>
+          <p class="mt-4 text-sm">Birger Jarlsgatan 18<br />114 34 Stockholm, Sweden</p>
+        </div>
+        <div class="grid grid-cols-2 gap-8 sm:grid-cols-4 md:gap-12">
+          <div>
+            <p class="text-xs font-bold uppercase text-white/90">Investment options</p>
+            <ul class="mt-3 space-y-2 text-sm">
+              <li><a href="overnight.html" class="hover:text-white">Overnight money</a></li>
+              <li><a href="fixed-term.html" class="hover:text-white">Fixed term deposits</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-xs font-bold uppercase text-white/90">About us</p>
+            <ul class="mt-3 space-y-2 text-sm">
+              <li><a href="about.html" class="hover:text-white">Management</a></li>
+              <li><a href="about.html" class="hover:text-white">Mission / Vision</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-xs font-bold uppercase text-white/90">Learn</p>
+            <ul class="mt-3 space-y-2 text-sm">
+              <li><a href="#" class="hover:text-white">Savings for beginners</a></li>
+              <li><a href="#" class="hover:text-white">News</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-xs font-bold uppercase text-white/90">Support</p>
+            <ul class="mt-3 space-y-2 text-sm">
+              <li><a href="#" class="hover:text-white">Customer support</a></li>
+              <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+              <li><a href="index.html#faq" class="hover:text-white">FAQ</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="mt-8 text-center text-xs">© 2026 Myntro AB.</p>
+    </div>
+  </footer>
+
+  <script src="js/calculator.js"></script>
+</body>
+</html>
